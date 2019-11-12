@@ -119,10 +119,12 @@ Person.prototype.play = function() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  I'm at a loss for this one, don't know how to reword these.
+  1. I understand global scope, and when in the global scope, outside of any other lower block scope, "this" refers to the active window/console
+  2. In the training kit, for principle two, I understand that I can use this.greeting, or this.sayHello to go even further, using the object before the dot as a reference.
+  3. I understand the concepts behind using this to bind properties of an object to a new instance of the object via the new keyword with a constructor.
+  4. I have never used call or apply, but as with anything else, when faced with this usage I'll google, and I'll succeed.
 */
 
 
