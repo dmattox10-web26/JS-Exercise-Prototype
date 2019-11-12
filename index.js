@@ -106,24 +106,7 @@ function Baby(name, age, favoriteToy) {
 Person.prototype.play = function() {
   return `Playing with ${this.favoriteToy}`
 }
-/*
-Baby.prototype = Object.create( Person.prototype )
-Baby.contructor = function (favoriteToy) {
-  this.favoriteToy = favoriteToy
-}
 
-Baby.prototype.play = function() {
-
-}
-*/
-/*
-function Baby (name, age, favoriteToy) {
-  __proto__ : Person
-  this.play = function() {
-    
-  }
-}
-*/
 /* 
   TASK 4
 
