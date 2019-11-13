@@ -39,8 +39,28 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+function Person(name, age/*, favoriteToy*/) {
+  this.name = name
+  this.age = age
+  /*this.favoriteToy = favoriteToy*/
+  this.stomach = []
+}
 
+Person.prototype.eat = function (someFood) {
+  
+  if (this.stomach.length <= 9) {
+    this.stomach.push(someFood)
+  }
+  return this.stomach
+}
+
+Person.prototype.poop =  function () {
+  this.stomach = []
+  return this.stomach
+}
+
+Person.prototype.toString = function () {
+  return `${this.name}, ${this.age}`
 }
 
 /*
@@ -57,8 +77,23 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, mpg) {
+  this.model = model
+  this.milesPerGallon = mpg
+  this.tank = 0
+  this.odometer = 0
+}
 
+Car.prototype.fill = function (gallons) {
+  this.tank += gallons
+}
+
+Car.prototype.drive = function (distance) {
+  if (this.tank - (distance / this.milesPerGallon) > 0) {
+    this.odometer += distance
+    this.tank -= (distance / this.milesPerGallon)
+  }
+  
 }
 
 /*
@@ -68,18 +103,28 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
 
+function Baby(name, age, favoriteToy) {
+  Baby.prototype = Object.create(Person.prototype)
+  this.favoriteToy = favoriteToy
+  this.name = name
+  this.age = age
+}
+
+Person.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  I'm at a loss for this one, don't know how to reword these.
+  1. I understand global scope, and when in the global scope, outside of any other lower block scope, "this" refers to the active window/console
+  2. In the training kit, for principle two, I understand that I can use this.greeting, or this.sayHello to go even further, using the object before the dot as a reference.
+  3. I understand the concepts behind using this to bind properties of an object to a new instance of the object via the new keyword with a constructor.
+  4. I have never used call or apply, but as with anything else, when faced with this usage I'll google, and I'll succeed.
 */
 
 
